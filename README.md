@@ -30,6 +30,19 @@ There will also be a couple of small scripts that use the cah.py library to crea
 
 Printer Instructions based on [this tumblr post](http://nerdsagainsthumanity.tumblr.com/post/77456664166/how-to-get-a-shit-ton-more-blank-cards-for-cards).  More targeted instructions will be available in the future.
 
+##Card Creation Tips and Tricks
+
+* White cards are almost always nouns (person, place, thing, idea) or gerunds (the -ing form of a verb, for example, "reading a book") and are usually a word or short phrase.
+
+* Black cards are almost always questions or fill-in-the-blank statements.
+
+* The underscores that make up a "blank" section of a black card usually take up an entire line or most of a line (the rest of a line other than a small word, all of a line except punctuation, etc).  Each card may take a bit of testing to figure out the "correct" number of underscores.  This may be an automated feature in the future.
+
+* Don't use an 'a' or 'an' right before a blank on a black card.  Any instance of 'a' or 'an' will be part of the white card.
+
+* Black cards come in three main types.  Most cards have no indicator and are simply "play 1" cards.  Some cards require a pair of cards and have a "Pick 2" indicator in the bottom right.  Finally there a few cards that are require the player to first draw 2 cards, and then choose a set of 3 cards to play.  These cards have a "Draw 2 Pick 3" indicator.
+
+
 
 #Licensing and Attribution
 
