@@ -1,42 +1,30 @@
-from PIL import Image
-from PIL import ImageFont
-from PIL import ImageDraw
+import "cahlib"
 
-## FRONT OF CARD
-# RESEARCH - Better to create card and then invert it? or create from scratch?
 
-# Create blank image of correct size and background
+#interactive program to create card sets
 
-# Add icon to bottom left
- # Image in grayscale, invert for black cards
- # Located in sets/SETNAME/icon.png
- # Default set is Misc, which uses CustomizedAgainstHumanity icon
+#new set, new set from *_set.txt, add cards to current set
 
-# Parse card text
- # Single underscore expands intelligently?
+#new set
+ #set name
+ #set icon
+ #set card back 3 lines
+ #numbered cards?
+ #loop through cards
+  #black or white
+  #text
+  #if black, suggest an indicator - manual override
+  #create temp
+  #card review
+  #save 
 
-# If needed, add "pick 2" or "draw 2, pick 3" indicator
- # Bottom right, black cards only, based on number of underscores
 
-# Add text to card
- # Font and size 16
+#new set from *_set.txt
+ #verify info - name, card back, number of white/black cards
+ #path to set icon
+ #done
 
-## BACK OF CARD
-# Create blank white card
-
-# Parse card text
- # Three lines
-
-# Add text to card
- # Font and size ??
-
-# Invert card to get black cardback
-
-## CREATE
-# Create card function
- # createCardFront(name, string, white/black, set="Misc")
-  # saves as sets/SETNAME/NAME.png
-
- # createCardBack(string, set="Misc")
-  # saves as sets/SETNAME/cardbackWHITE.png and cardnameBLACK.png
-  # run once
+#add cards to current set
+ #set name
+ #loop through cards
+  #"             "

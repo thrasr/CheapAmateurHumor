@@ -1,0 +1,13 @@
+setname:misc
+numbered:false
+----------
+Customized
+Against
+Humanity
+----------
+b001.png!:I used to be a _, but then I took an arrow to the knee.
+w001.png:Hodor.
+w002.png:Bitcoins.
+b002.png@:_ and _ in the back seat.  Most awkward road trip ever.
+b003.png#:_ + _ = _
+w003.png:Years of academy training wasted.
