@@ -58,5 +58,3 @@ I have no affiliation with Cards Against Humanity.  Their cards are under a Crea
 The base game of CAH PDF is available for free under a Creative Commons license.  See [here](http://cardsagainsthumanity.com/#download) for more info or to download the UK/Canadian versions.
 
 The House of Cards Pack PDF is available for free, although no license is listed.  See [here](http://houseofcardsagainsthumanity.com/) for more info.
-
-There will be font files included in the future that will be available for personal use.  A more accurate description and a source link will be added when the font file is uploaded.
