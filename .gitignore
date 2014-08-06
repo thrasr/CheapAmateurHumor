@@ -1,0 +1,6 @@
+# Python files
+*.py[cod]
+__pycache__/
+
+# GIMP Files
+*.xcf
