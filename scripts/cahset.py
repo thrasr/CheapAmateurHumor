@@ -1,12 +1,8 @@
 # Rory Thrasher, 2014
-
+import cahlib.py
 
 
 class cah_set:
-    punctuation = [',', '.', ';', ':', '!', '?', '/', '(', ')']
-    pick2 = '../resources/pick2.png'
-    pick3 = '../resources/pick3.png'
-    defaulticon = '../sets/misc/assets/icon.png'
     
     def init(self, vars):
         #python does inits weird...
