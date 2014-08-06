@@ -20,7 +20,7 @@ from PIL import ImageDraw
  # Bottom right, black cards only, based on number of underscores (or manual intervention)
 
 # Add text to card
- # Font and size 16
+ # Font and size 16?
 
 ## BACK OF CARD
 # Use ../resouces/blankcard.png for base
