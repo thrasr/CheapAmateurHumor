@@ -1,10 +1,12 @@
+from os import path
 from PIL import Image
 from PIL import ImageFont
 from PIL import ImageDraw
 
+DEBUG = 1
 PUNCTUATION = [',', '.', ';', ':', '!', '?', '/', '(', ')']
-PICK2 = '../resources/pick2.png'
-PICK3 = '../resources/pick3.png'
+BLANK = '../resources/blankcard.png'
+PICK = '../resources/pick'
 DEFAULTICON = '../sets/misc/assets/icon.png'
 
 ## PARSE
@@ -20,49 +22,65 @@ def expand(text):
 
 ## CREATE
 def createwhitecard(name, card):
-    # Start with black card
-    
+    # Start with blank card
+    im = Image.open(BLANK)
+
     # Add set icon
-    if '../sets/' + name + '/assets/icon.png':
-        #import and add icon
+    if DEBUG:
+        icon = Image.open("../resources/fullicon.png")
+    elif path.isfile('../sets/' + name + '/assets/icon.png'):
+        icon = Image.open('../sets/' + name + '/assets/icon.png')
     else:
-        #import and add DEFAULTICON'
+        icon = Image.open(DEFAULTICON)
+
+    iconbox = (144, 915, 483, 990)
+    im.paste(icon, iconbox, mask=icon)
 
     # Add text
-    #card.text
+    #card['text']
 
     # Save image
-    #card.name + '.png'
+    im.save('../sets/' + name + '/' + card['name'] + '.png')
+
+    #return im
 
 
 def createblackcard(name, card):
-    # Start with black card
-    pass
+    # Start with blank card
+    im = Image.open(BLANK)
 
     # Add set icon
-    if '../sets/' + name + '/assets/icon.png':
-        #add icon
+    if DEBUG:
+        icon = Image.open("../resources/fullicon.png")
+    elif path.isfile('../sets/' + name + '/assets/icon.png'):
+        icon = Image.open('../sets/' + name + '/assets/icon.png')
     else:
-        #add DEFAULTICON
+        icon = Image.open(DEFAULTICON)
+
+    iconbox = (144, 915, 483, 990)
+    im.paste(icon, iconbox, mask=icon)
+
 
     # Add pick icon if needed
-    if card.pick == 2:
-        #add PICK2
-    elif card.pick == 3:
-        #add PICK3
+    if (card['pick'] == 2) or (card['pick'] == 3):
+        pick = Image.open(PICK + str(card['pick']) + '.png')
+        pickbox = (471, 853, 696, 1003)
+        im.paste(pick, pickbox, mask=pick)
 
     # Add text
-    #card.text
+    #card['text']
 
     # Invert text to make black card
     #PIL.invert
 
     # Save image
-    #card.name + '.png'
+    im.save('../sets/' + name + '/' + card['name'] + '.png')
 
-createback(name, line1, line2, line3)
+    #return im
+
+def createback(name, line1, line2, line3):
     # Start with black card
-    pass
+    im = Image.open(BLANK)
 
     # Add text
     #PIL.type line1
@@ -70,8 +88,8 @@ createback(name, line1, line2, line3)
     #PIL.type line3
     
     # Save white card back
-    #'../sets/' + name + '/assets/wcardback.png'
+    im.save('../sets/' + name + '/assets/wcardback.png')
     
     # Invert image and save black card back
     #PIL.invert
-    #'../sets/' + name + '/assets/bcardback.png'
+    im.save('../sets/' + name + '/assets/bcardback.png')
