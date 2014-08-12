@@ -9,7 +9,7 @@ Cards will be designed for use with [printerstudio.com](http://www.printerstudio
 
 ##Setup
 
-This code is written in python 2.7 and uses the Python Image Library (PIL).
+This code is written in python 2.7 and uses the [Python Image Library (PIL)](http://www.pythonware.com/products/pil/).
 
 ##Custom Cards
 
