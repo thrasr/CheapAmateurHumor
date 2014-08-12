@@ -118,7 +118,7 @@ def createwhitecard(name, card):
 
 
     # Save image
-    im.save('../sets/' + name + '/' + card['name'] + '.png')
+    im.save('../sets/' + name + '/' + card['name'] + '.png', dpi=(300,300))
 
     #return im
 
@@ -158,7 +158,7 @@ def createblackcard(name, card):
     im = ImageOps.invert(im)
 
     # Save image
-    im.save('../sets/' + name + '/' + card['name'] + '.png')
+    im.save('../sets/' + name + '/' + card['name'] + '.png', dpi=(300,300))
 
     #return im
 
@@ -172,8 +172,8 @@ def createback(name, line1, line2, line3):
     #PIL.type line3
     
     # Save white card back
-    im.save('../sets/' + name + '/assets/wcardback.png')
+    im.save('../sets/' + name + '/assets/wcardback.png', dpi=(300,300))
     
     # Invert image and save black card back
     #PIL.invert
-    im.save('../sets/' + name + '/assets/bcardback.png')
+    im.save('../sets/' + name + '/assets/bcardback.png', dpi=(300,300))
