@@ -13,17 +13,21 @@ This code is written in python 2.7 and uses the [Python Image Library (PIL)](htt
 
 ##Custom Cards
 
-The idea is to create sets of custom card templates for use with a professional printer.  The goal is to create cards that are the same size, texture, and approximate look of the offical CAH sets.  According to the creative commons license you CAN use this program to create a copy of the official base game and expansions, however you cannot sell it.  I highly recommend that you purchase the offical sets from the [Cards Against Humanity Store](https://store.cardsagainsthumanity.com/) in order to support the game creators.  It will also be significantly cheaper than customizing the full set of cards.  This custom card program is for creating replacement cards or custom sets that fit well with the official game. 
+The goal of this project is to create sets of custom card files for use with a professional printer.  Cards should be the same size, texture, and approximate look of the offical CAH sets.  According to the creative commons license you CAN use this program to create a copy of the official base game and expansions, however you cannot sell it.  I highly recommend that you purchase the offical sets from the [Cards Against Humanity Store](https://store.cardsagainsthumanity.com/) in order to support the game creators.  It will also be significantly cheaper than customizing the full set of cards.  This custom card program is for creating replacement cards or custom sets that fit well with the official game. 
 
 Here is an explanation of the python files and what they do.
 
 * cah.py - A guided walkthrough of how to create, import, or edit sets.
 
-* card.py - Single custom (or replacement) cards can be created using command line arguments or stepping through the script.  Cards will be placed into the misc unless otherwise specified.
+* card.py - Single custom (or replacement) cards can be created using command line arguments or stepping through the script.  Cards will be placed into the misc set unless otherwise specified.
 
 * cahlib.py - Library containing the core functionality to design and create cards.
 
 * cahset.py - The card set class.
+
+Future Sets
+
+* cahweb - A python server and web front end for a GUI.  Users can use the website to set card text, card color, card icon (either upload a valid file or choose from a list of exisiting icons), pick template, and card back design.  There will be a button that sends the information form to the server, which will then generate a card and display a preview of the card on the front end.  The user can then download the card files to be printed.  This web front end may also serve as a set-based (rather than single card) interface and/or may simply save the files to the server, acting as a remote way to create/edit cards.
 
 * convertPDF.py - This program will attempt to convert official PDFs provided by Cards Against Humanity under the CC and convert them into card sets.  This is useful for obtaining replacement cards from the base game, house of cards pack, or any PDF sets released in the future.
 
@@ -34,7 +38,7 @@ Printer Instructions based on [this tumblr post](http://nerdsagainsthumanity.tum
 
 ##Card Creation Tips and Tricks
 
-* White cards are almost always nouns (person, place, thing, idea) or gerunds (the -ing form of a verb, for example, "reading a book") and are usually a word or short phrase.
+* White cards are words and phrases that are almost always nouns (person, place, thing, idea) or gerunds (the -ing form of a verb, for example, "reading a book").
 
 * Black cards are almost always questions or fill-in-the-blank statements.
 
