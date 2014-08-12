@@ -165,15 +165,25 @@ def createblackcard(name, card):
 def createback(name, line1, line2, line3):
     # Start with black card
     im = Image.open(BLANK)
+    im = im.convert('RGB')
+    
+    font = ImageFont.truetype('../resources/helvetica-neue-bold.ttf', 127)
+    draw = ImageDraw.Draw(im)
 
-    # Add text
-    #PIL.type line1
-    #PIL.type line2
-    #PIL.type line3
+    # Validate line sizes
+    if font.getsize(line1)[0] > 576 or font.getsize(line2)[0] > 576 or font.getsize(line3)[0] > 576:
+        print "WARNING - CARD BACK TEXT TOO LONG"
+        print "TEXT MAY OVERFLOW OFF CARD"
+
+    # Add text (with 120 pixel between lines)
+    # Lines adjusted assuming a C, A, H for the first letters
+    draw.text((145, 120), line1, font=font, fill='black')
+    draw.text((146, 240), line2, font=font, fill='black')
+    draw.text((140, 360), line3, font=font, fill='black')
     
     # Save white card back
     im.save('../sets/' + name + '/assets/wcardback.png', dpi=(300,300))
     
     # Invert image and save black card back
-    #PIL.invert
+    im = ImageOps.invert(im)
     im.save('../sets/' + name + '/assets/bcardback.png', dpi=(300,300))
