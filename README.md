@@ -23,14 +23,21 @@ Here is an explanation of the python files and what they do.
 
 * cahlib.py - Library containing the core functionality to design and create cards.
 
+<<<<<<< HEAD
 * cahset.py - The card set class.
 
 Future Sets
 
 * cahweb - A python server and web front end for a GUI.  Users can use the website to set card text, card color, card icon (either upload a valid file or choose from a list of exisiting icons), pick template, and card back design.  There will be a button that sends the information form to the server, which will then generate a card and display a preview of the card on the front end.  The user can then download the card files to be printed.  This web front end may also serve as a set-based (rather than single card) interface and/or may simply save the files to the server, acting as a remote way to create/edit cards.
+=======
+* cahset.py - The set class.
+
+Future Projects
+>>>>>>> e89c5b29adcefd83ed68c3bfc9360a60c1613e9c
 
 * convertPDF.py - This program will attempt to convert official PDFs provided by Cards Against Humanity under the CC and convert them into card sets.  This is useful for obtaining replacement cards from the base game, house of cards pack, or any PDF sets released in the future.
 
+* cahweb - A python server and web front end for a GUI.  Users can use the website to set card text, card color, card icon (either upload a valid file or choose from a list of exisiting icons), pick template, and card back design.  There will be a button that sends the information form to the server, which will then generate a card and display a preview of the card on the front end.  The user can then download the card files to be printed.  This web front end may also serve as a set-based (rather than single card) interface and/or may simply save the files to the server, acting as a remote way to create/edit cards.
 
 ##Printer Instructions
 
