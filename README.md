@@ -23,17 +23,9 @@ Here is an explanation of the python files and what they do.
 
 * cahlib.py - Library containing the core functionality to design and create cards.
 
-<<<<<<< HEAD
-* cahset.py - The card set class.
-
-Future Sets
-
-* cahweb - A python server and web front end for a GUI.  Users can use the website to set card text, card color, card icon (either upload a valid file or choose from a list of exisiting icons), pick template, and card back design.  There will be a button that sends the information form to the server, which will then generate a card and display a preview of the card on the front end.  The user can then download the card files to be printed.  This web front end may also serve as a set-based (rather than single card) interface and/or may simply save the files to the server, acting as a remote way to create/edit cards.
-=======
 * cahset.py - The set class.
 
 Future Projects
->>>>>>> e89c5b29adcefd83ed68c3bfc9360a60c1613e9c
 
 * convertPDF.py - This program will attempt to convert official PDFs provided by Cards Against Humanity under the CC and convert them into card sets.  This is useful for obtaining replacement cards from the base game, house of cards pack, or any PDF sets released in the future.
 
@@ -55,7 +47,7 @@ Printer Instructions based on [this tumblr post](http://nerdsagainsthumanity.tum
 
 * Black cards come in three main types.  Most cards have no indicator and are simply "play 1" cards.  Some cards require a pair of cards and have a "Pick 2" indicator in the bottom right.  Finally there a few cards that are require the player to first draw 2 cards, and then choose a set of 3 cards to play.  These cards have a "Draw 2 Pick 3" indicator.
 
-* Draw 2 Pick 3 cards are very rare and can be difficult to play.  Create these cards sparingly and only in special situations.  There are only 2 in the base game!
+* Draw 2 Pick 3 cards are very rare and can be difficult to design for play.  Create these cards sparingly and only in special situations.  There are only 2 in the base game!
 
 
 
