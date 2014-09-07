@@ -1,7 +1,7 @@
-CustomizedAgainstHumanity
+CheapAmateurHumor
 =========================
 
-Generate custom [Cards Againts Humanity (CAH)](http://cardsagainsthumanity.com) cards that can be professionally printed to be compatible with your deck.
+Generate custom cards that can be professionally printed to be compatible with your [Cards Againts Humanity (CAH)](http://cardsagainsthumanity.com) deck.
 
 Cards will be designed for use with [printerstudio.com](http://www.printerstudio.com/make-your-own-custom-cards.aspx).  I have no affiliation whatsoever with printerstudio.com.  Card designs may be suitable for use with other printing companies, however they may require adjustments in design to meet the printer's specifications.
 
