@@ -49,6 +49,21 @@ Printer Instructions based on [this tumblr post](http://nerdsagainsthumanity.tum
 
 * Draw 2 Pick 3 cards are very rare and can be difficult to design for play.  Create these cards sparingly and only in special situations.  There are only 2 in the base game!
 
+## FAQ
+
+Q: Where does name "Cheap Amateur Humor" come from?
+
+A: The project needed a name to differiate itself from Cards Against Humanity because they own the name.  The name was originally "Customized Against Humanity", but that still may have been too close.  Some friends and I (after a few drinks) decided to come up with a better name that followed the CAH acronym.  Cheap, because you're making your own cards.  Amateur, because we assume you aren't a professional.  And finally humor, because we hope that your cards are actually funny.
+
+
+Q: Why is the icon colored?
+
+A: To allow players to easily find and separate all custom cards from their deck at the end of the night.  Yellow and blue where chosen because [Crabs Adjust Humidity (another spinoff, check them out!)](http://www.crabsadjusthumidity.com/) uses red.
+
+
+Q: Why do the white/black cards have different color icons?
+
+A: The way that the program creates black cards is by first creating a white card and then inverting the colors.  This allows us to reuse a lot of code and templates, and I ended up liking the different colored icons for each type of card.
 
 
 #Licensing, Attribution, and Sources
