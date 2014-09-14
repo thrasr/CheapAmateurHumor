@@ -4,10 +4,9 @@ from PIL import ImageOps
 from PIL import ImageFont
 from PIL import ImageDraw
 
-DEBUG = 1
 BLANK = '../resources/blankcard.png'
 PICK = '../resources/pick'
-DEFAULTICON = '../sets/misc/assets/icon.png'
+DEFAULTICON = "../resources/fullicon.png"
 FONT = ImageFont.truetype('../resources/helvetica-neue-bold.ttf', 56)
 LINELENGTH = 530
 
@@ -92,15 +91,27 @@ def expand(text):
 
 
 ## CREATE FUNCTIONS
+def createicon(name):
+    # Open default full icon
+    full = Image.open("../resources/fullicon.png")
+
+    # Open custom icon
+    icon = Image.open('../sets/' + name + '/assets/icon.png')
+
+    # Paste custom icon onto full icon
+    coords = (27, 18)
+    full.paste(icon, coords, mask=icon)
+
+    # Return new icon
+    return full
+
 def createwhitecard(name, card):
     # Start with blank card
     im = Image.open(BLANK)
 
     # Add set icon
-    if DEBUG:
-        icon = Image.open("../resources/fullicon.png")
-    elif path.isfile('../sets/' + name + '/assets/icon.png'):
-        icon = Image.open('../sets/' + name + '/assets/icon.png')
+    if path.isfile('../sets/' + name + '/assets/icon.png'):
+        icon = createicon(name)
     else:
         icon = Image.open(DEFAULTICON)
 
@@ -128,10 +139,8 @@ def createblackcard(name, card):
     im = Image.open(BLANK)
 
     # Add set icon
-    if DEBUG:
-        icon = Image.open("../resources/fullicon.png")
-    elif path.isfile('../sets/' + name + '/assets/icon.png'):
-        icon = Image.open('../sets/' + name + '/assets/icon.png')
+    if path.isfile('../sets/' + name + '/assets/icon.png'):
+        icon = createicon(name)
     else:
         icon = Image.open(DEFAULTICON)
 
