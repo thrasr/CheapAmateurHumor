@@ -3,6 +3,7 @@ import cahlib
 import json
 import os
 import shutil
+import sys
 
 class CAHset:
     def __init__(self, *args, **kwargs):
@@ -31,8 +32,40 @@ class CAHset:
         # Setup folders and do first export
         self.foldersetup()
         self.export()
-        
+
     def importset(self, setname):
+        # Determine if we are opening an existing set
+        # or importing a brand new one from /imports/
+        if os.path.exists("../sets/" + setname) and os.path.isdir("../sets/" + setname):
+            self.importold(setname)
+        else:
+            self.importnew(setname)
+
+    def importold(self, setname):
+        # Read json file
+        try:
+            f = open("../sets/" + setname + "/assets/" + setname + ".json", 'r')
+            d = json.loads(f.read())
+        except:
+            print "UNABLE TO FIND/READ FILE: ../sets/" + setname + "/assets/" + setname + ".json"
+            print "SET NOT IMPORTED"
+            sys.exit(0)
+
+        # Initialize from JSON dictionary
+        self.name = setname
+        self.back1 = d['back1']
+        self.back2 = d['back2']
+        self.back3 = d['back3']
+        self.blackcards = d['blackcards']
+        self.whitecards = d['whitecards']
+
+        # For possible future functionality
+        self.numbered=d['numbered']
+        self.numberedinset=d['numberedinset']
+
+    def importnew(self, setname):
+        self.name = setname
+
         # Create file structure
         self.foldersetup()
 
@@ -43,7 +76,7 @@ class CAHset:
         except:
             print "UNABLE TO FIND/READ FILE: ../imports/" + setname + ".json"
             print "SET NOT IMPORTED - ATTEMPT MANUAL SETUP"
-            return
+            sys.exit(0)
 
         # Check for custom icon and copy it if need be
         try:
@@ -54,16 +87,15 @@ class CAHset:
             print "Set will use default icon"
 
         # Initialize from JSON dictionary
-        self.name = setname
-        self.back1 = d.back1
-        self.back2 = d.back2
-        self.back3 = d.back3
-        self.blackcards = d.blackcards
-        self.whitecards = d.whitecards
+        self.back1 = d['back1']
+        self.back2 = d['back2']
+        self.back3 = d['back3']
+        self.blackcards = d['blackcards']
+        self.whitecards = d['whitecards']
 
         # For possible future functionality
-        self.numbered=d.numbered
-        self.numberedinset=d.numberedinset
+        self.numbered=d['numbered']
+        self.numberedinset=d['numberedinset']
 
         # First export
         self.export()
@@ -98,41 +130,40 @@ class CAHset:
 
     def addwhitecard(self, cardtext):
         tempcard = {}
-        tempcard['name'] = 'w' + str(size(self.whitecards))
-        # possibly add some sort of text validation here? if so, return false
+        tempcard['name'] = 'w' + str(len(self.whitecards))
+        # possibly add some sort of text validation here? if so, return False
         tempcard['text'] = cardtext
-        self.whitecards[tempcard.name] = tempcard
-        
+
+        self.whitecards[tempcard['name']] = tempcard
+
         self.export()
-        return true
+        #return True
         
     def addblackcard(self, cardtext, pickx=0):
         tempcard = {}
-        tempcard['name'] = 'b' + str(size(self.blackcards))
-        # possibly add some sort of text validation here? if so, return false
+        tempcard['name'] = 'b' + str(len(self.blackcards))
+        # possibly add some sort of text validation here? if so, return False
         if pickx>0 and pickx<4:
             tempcard['pick']=pickx
         else:
             tempcard['pick']=0
-        tempcard['text'] = cahlib.expand(cardtext)
-        self.blackcards[tempcard.name] = tempcard
+        tempcard['text'] = cardtext
+        #tempcard['text'] = cahlib.expand(cardtext)
+        self.blackcards[tempcard['name']] = tempcard
         
         self.export()
-        return true
+        #return True
         
     def create(self):
         # Create card backs (black and white)
         cahlib.createback(self.name, self.back1, self.back2, self.back3)
-        
+
         # Create cards
-        for card in self.whitecards:
-            cahlib.createwhitecard(self.name, card)
-        for card in self.blackcards:
-            cahlib.createblackcard(self.name, card)
+        for key in self.whitecards:
+            cahlib.createwhitecard(self.name, self.whitecards[key])
+        for key in self.blackcards:
+            cahlib.createblackcard(self.name, self.blackcards[key])
             
-        # Future functionality: Numbered cards (1, 2, 3...) and Number in set (1/27, 2/27, 3/27...)
-        
-        
     def __str__(self):
         out = self.name + '\n'
         out += '--------\n'

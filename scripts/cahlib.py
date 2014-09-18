@@ -71,13 +71,15 @@ def expander(words, lines):
         lines.append(line)
         return expander(words[i:], lines)
 
-def expand(text):
-    # Prepare for and determine text format
-
+def stripunderscores(text):
     # Sanitize input - strip down to a single '_'
     while '__' in text:
         text = text.strip().replace('__', '_')
+    return text
 
+def expand(text):
+    # Prepare for and determine text format
+    text = stripunderscores(text)
 
     lines = []
     words = text.split()
@@ -87,12 +89,6 @@ def expand(text):
         print "CANNOT CREATE CARD WITH TEXT:"
         print text
     return result[:9]
-
-def countunderscores(text):
-    total = 0
-    for line in text:
-        total += line.count('_')
-    return total
 
 ## CREATE FUNCTIONS
 def createicon(name):
@@ -151,6 +147,18 @@ def createblackcard(name, card):
     iconbox = (144, 915, 483, 990)
     im.paste(icon, iconbox, mask=icon)
 
+    # Check for pick x icon
+    pnum = card['pick']
+    # Use given pick icon if present, count _'s otherwise
+    if pnum == 0:
+        pnum = stripunderscores(card['text']).count('_')
+    # Add icon if needed
+    if pnum == 2 or pnum == 3:
+        pick = Image.open(PICK + str(pnum) + '.png')
+        pickbox = (471, 853, 696, 1003)
+        im.paste(pick, pickbox, mask=pick)
+
+
     # Add text
     im = im.convert('RGB')
     draw = ImageDraw.Draw(im)
@@ -159,18 +167,6 @@ def createblackcard(name, card):
     for line in text:
         draw.text((146, 134+68*num), line, font=FONT, fill='black')
         num += 1
-
-    # Check for pick x icon
-    pnum = card['pick']
-    # Use given pick icon if present, count _'s otherwise
-    if not ((card['pick'] == 2) or (card['pick'] == 3)):
-        pnum = countunderscores(text)
-
-    # Add icon if needed
-    if pnum == 2 or pnum == 3:
-        pick = Image.open(PICK + str(pnum) + '.png')
-        pickbox = (471, 853, 696, 1003)
-        im.paste(pick, pickbox, mask=pick)
 
     # Invert text to make black card
     im = ImageOps.invert(im)
