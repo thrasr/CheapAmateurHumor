@@ -1,0 +1,8 @@
+In order to import a set there are two files that you are looking for.
+
+First is the JSON file, and this is mandatory.  The file will be named SETNAME.json.
+
+Second is the icon file, and this is optional.  The file will be named SETNAMEicon.png
+
+Place the file(s) into this directory and then navigate to the import functionality of whichever program you're using.
+

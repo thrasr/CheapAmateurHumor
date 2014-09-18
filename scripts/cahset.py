@@ -2,6 +2,7 @@
 import cahlib.py
 import json
 import os
+import shutil
 
 class cah_set:
     def init(self, vars):
@@ -37,15 +38,17 @@ class cah_set:
 
         # Read json file
         try:
-            f = open('../imports/' + setname + '/assets/' + setname + '.json', 'r')
+            f = open('../imports/' + setname + '.json', 'r')
             d = json.loads(f.read())
         except:
             print "UNABLE TO FIND/READ FILE: ../imports/" + setname + ".json"
             print "SET NOT IMPORTED - ATTEMPT MANUAL SETUP"
             return
 
+        # Check for custom icon and copy it if need be
         try:
-            if os.path.exists("../import/" + self.name + "icon.png")
+            if os.path.exists("../import/" + setname + "icon.png"):
+                shutil.copyfile("../import/" + setname + "icon.png", "../sets/" + setname + "/assets/" + setname + "icon.png")
         except:
             print "No custom icon found for set " + self.name
             print "Set will use default icon"
