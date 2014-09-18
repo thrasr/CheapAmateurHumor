@@ -96,7 +96,7 @@ def createicon(name):
     full = Image.open("../resources/fullicon.png")
 
     # Open custom icon
-    icon = Image.open('../sets/' + name + '/assets/icon.png')
+    icon = Image.open('../sets/' + name + '/assets/' + name + 'icon.png')
 
     # Paste custom icon onto full icon
     coords = (27, 18)
@@ -110,7 +110,7 @@ def createwhitecard(name, card):
     im = Image.open(BLANK)
 
     # Add set icon
-    if path.isfile('../sets/' + name + '/assets/icon.png'):
+    if path.isfile('../sets/' + name + '/assets/' + name + 'icon.png'):
         icon = createicon(name)
     else:
         icon = Image.open(DEFAULTICON)
@@ -139,7 +139,7 @@ def createblackcard(name, card):
     im = Image.open(BLANK)
 
     # Add set icon
-    if path.isfile('../sets/' + name + '/assets/icon.png'):
+    if path.isfile('../sets/' + name + '/assets/' + name + 'icon.png'):
         icon = createicon(name)
     else:
         icon = Image.open(DEFAULTICON)
