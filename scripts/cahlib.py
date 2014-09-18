@@ -88,7 +88,11 @@ def expand(text):
         print text
     return result[:9]
 
-
+def countunderscores(text):
+    total = 0
+    for line in text:
+        total += line.count('_')
+    return total
 
 ## CREATE FUNCTIONS
 def createicon(name):
@@ -147,13 +151,6 @@ def createblackcard(name, card):
     iconbox = (144, 915, 483, 990)
     im.paste(icon, iconbox, mask=icon)
 
-
-    # Add pick icon if needed
-    if (card['pick'] == 2) or (card['pick'] == 3):
-        pick = Image.open(PICK + str(card['pick']) + '.png')
-        pickbox = (471, 853, 696, 1003)
-        im.paste(pick, pickbox, mask=pick)
-
     # Add text
     im = im.convert('RGB')
     draw = ImageDraw.Draw(im)
@@ -162,6 +159,18 @@ def createblackcard(name, card):
     for line in text:
         draw.text((146, 134+68*num), line, font=FONT, fill='black')
         num += 1
+
+    # Check for pick x icon
+    pnum = card['pick']
+    # Use given pick icon if present, count _'s otherwise
+    if not ((card['pick'] == 2) or (card['pick'] == 3)):
+        pnum = countunderscores(text)
+
+    # Add icon if needed
+    if pnum == 2 or pnum == 3:
+        pick = Image.open(PICK + str(pnum) + '.png')
+        pickbox = (471, 853, 696, 1003)
+        im.paste(pick, pickbox, mask=pick)
 
     # Invert text to make black card
     im = ImageOps.invert(im)

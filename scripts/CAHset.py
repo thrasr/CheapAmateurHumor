@@ -1,16 +1,16 @@
 # Rory Thrasher, 2014
-import cahlib.py
+import cahlib
 import json
 import os
 import shutil
 
-class cah_set:
-    def init(self, vars):
+class CAHset:
+    def __init__(self, *args, **kwargs):
         #python does inits weird...
-        if size(vars) = 4:
-            self.scratch(vars[0], vars[1], vars[2], vars[3])
-        elif size(vars) = 1:
-            self.importset(vars[0])
+        if len(args) == 4:
+            self.scratch(args[0], args[1], args[2], args[3])
+        elif len(args) == 1:
+            self.importset(args[0])
         else:
             print "ERROR: INVALID SET INITIALIZATION"
             print "SET IS EMPTY AND NOT USABLE"
@@ -25,8 +25,8 @@ class cah_set:
         self.whitecards = {}
 
         # For possible future functionality
-        self.numbered = false
-        self.numberedinset = false
+        self.numbered = False
+        self.numberedinset = False
 
         # Setup folders and do first export
         self.foldersetup()
@@ -110,10 +110,10 @@ class cah_set:
         tempcard = {}
         tempcard['name'] = 'b' + str(size(self.blackcards))
         # possibly add some sort of text validation here? if so, return false
-        if pickx>0 && pickx<4:
+        if pickx>0 and pickx<4:
             tempcard['pick']=pickx
         else:
-            tempcard['pick']= #number of '_' in cardtext
+            tempcard['pick']=0
         tempcard['text'] = cahlib.expand(cardtext)
         self.blackcards[tempcard.name] = tempcard
         
@@ -125,11 +125,26 @@ class cah_set:
         cahlib.createback(self.name, self.back1, self.back2, self.back3)
         
         # Create cards
-        for card in whitecards:
+        for card in self.whitecards:
             cahlib.createwhitecard(self.name, card)
-        for card in blackcards:
+        for card in self.blackcards:
             cahlib.createblackcard(self.name, card)
             
         # Future functionality: Numbered cards (1, 2, 3...) and Number in set (1/27, 2/27, 3/27...)
         
         
+    def __str__(self):
+        out = self.name + '\n'
+        out += '--------\n'
+        out += self.back1 + '\n'
+        out += self.back2 + '\n'
+        out += self.back3 + '\n'
+        out += '--------\n'
+        out += 'BLACK CARDS:\n'
+        for card in self.blackcards:
+            out+= card['text'] + '\n'
+        out += 'WHITE CARDS:\n'
+        for card in self.whitecards:
+            out+= card['text'] + '\n'
+
+        return out
