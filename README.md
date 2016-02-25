@@ -53,7 +53,7 @@ Printer Instructions based on [this tumblr post](http://nerdsagainsthumanity.tum
 
 Q: Where does name "Cheap Amateur Humor" come from?
 
-A: The project needed a name to differiate itself from Cards Against Humanity because they own the name.  The name was originally "Customized Against Humanity", but that still may have been too close.  Some friends and I (after a few drinks) decided to come up with a better name that followed the CAH acronym.  Cheap, because you're making your own cards.  Amateur, because we assume you aren't a professional.  And finally humor, because we hope that your cards are actually funny.
+A: The project needed a name to differentiate itself from Cards Against Humanity because they own the name.  The name was originally "Customized Against Humanity", but that still may have been too close.  Some friends and I (after a few drinks) decided to come up with a better name that followed the CAH acronym.  Cheap, because you're making your own cards.  Amateur, because we assume you aren't a professional.  And finally humor, because we hope that your cards are actually funny.
 
 
 Q: Why is the icon colored?
